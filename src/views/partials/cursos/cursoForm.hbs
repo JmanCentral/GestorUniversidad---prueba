@@ -1,0 +1,75 @@
+<div class="card card-body p-4 rounded-0 bg-dark text-white">
+    <h4 class="text-center">Agregar curso</h4>
+    <form class="form-inline" action="/cursos/agregar" method="GET"></form>
+    <form action="/cursos/agregar" method="POST">
+     
+     <div>
+        <label for="id">Escribe el id:</label>
+        <input type="text" name="id" placeholder="ID" id="id"
+        class="form-control bg-dark text-white"/>
+    </div>
+
+    <div>
+        <label for="materia">Escribe la materia:</label>
+        <input type="text" name="materia" placeholder="Materia" id="materia"
+        class="form-control bg-dark text-white"/>
+    </div>
+
+     <div>
+        <label for="descripcion">Escribe la descripcion de la materia:</label>
+        <input type="text" name="descripcion" placeholder="Descripcion" id="descripcion"
+        class="form-control bg-dark text-white"/>
+    </div>
+
+    <div>
+        <label for="dia">Selecciona el dia:</label>
+    <select name="dia" id="dia" class="form-control bg-dark text-white">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="lunes">Lunes</option>
+        <option value="martes">Martes</option>
+        <option value="miercoles">Miercoles</option>
+        <option value="jueves">Jueves</option>
+        <option value="viernes">Viernes</option>
+        <option value="sabado">Sabado</option>
+        </select>
+    </div>
+
+
+    <div>
+    <label for="horario">Selecciona el horario:</label>
+    <select name="horario" id="horario" class="form-control bg-dark text-white">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="7:00-8:30">7:00-8:30</option>
+        <option value="7:00-9:00">7:00-9:00</option>
+        <option value="9:00-10:30">9:00-10:30</option>
+        <option value="9:00-11:00">9:00-11:00</option>
+        <option value="11:00-12:30">11:00-12:30</option>
+        <option value="11:00-13:00">11:00-13:00</option>
+        <option value="14:00-15:30">14:00-15:30</option>
+        <option value="14:00-16:00">14:00-16:00</option>
+        <option value="16:00-17:30">16:00-17:30</option>
+        <option value="16:00-18:00">16:00-18:00</option>
+        <option value="18:00-19:30">18:00-19:30</option>
+        <option value="18:00-20:00">18:00-20:00</option>
+        <option value="20:00-21:30">20:00-21:30</option>
+        <option value="20:00-22:00">20:00-22:00</option>
+    </select>
+</div>
+
+    <div>
+        <label for="credito">Escribe los creditos:</label>
+        <input type="text" name="credito" placeholder="Credito" id="credito"
+        class="form-control bg-dark text-white"/>
+    </div>
+
+    <div>
+    <label for="imagen">Selecciona una imagen:</label>
+    <input type="file" name="imagen" id="imagen" class="form-control"/>
+  </div>
+
+    <button class="btn btn-success btn-sm mt-2">Agregar</button>
+</form>
+
+    <button class="btn btn-success btn-sm mt-2" onclick="window.location.href='/';">Volver</button>
+
+</div>

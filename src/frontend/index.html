@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    
+    <header>   
+        <div class="banner">
+        <h1>Gestión de universidad</h1>
+        </div>
+    </header> 
+
+    <header class="nav-header">
+        <div class="logo">
+        <img src="banner3.png" alt="logo del banco">
+        </div>
+         
+        <nav>
+            <div class = "conteiner1">
+            <ul class="navbar">
+                <button id="verProductosBtn">Ver Estudiantes</button>
+                <button id="verVentasBtn">Ver profesores</button>
+                <button id="verCursosBtn">Ver cursos</button>
+            </ul>
+             </div>   
+        </nav>
+    </header>
+
+    <script>
+        document.getElementById('verProductosBtn').addEventListener('click', function() {
+            window.location.href = "/estudiantes";  
+        });
+    </script>
+
+    <script>
+        document.getElementById('verVentasBtn').addEventListener('click', function() {
+            window.location.href = "/profesores";  
+        });
+    </script>
+    <script>
+        document.getElementById('verCursosBtn').addEventListener('click', function() {
+            window.location.href = "/cursos";  
+        });
+    </script>
+</body>
+
+</html>

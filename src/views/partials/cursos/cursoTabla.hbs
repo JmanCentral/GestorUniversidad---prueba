@@ -1,0 +1,103 @@
+<form class="form-inline" action="/cursos/buscar" method="GET">
+  
+  
+  <!-- Selección del tipo de búsqueda -->
+  <div class="form-group mx-sm-3 mb-2 col-md-2">
+    <select name="tipoBusqueda" class="form-control" id="tipoBusqueda">
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option value="id">ID</option>
+      <option value="materia">Materia</option>
+      <option value="dia">Dia</option>
+      <option value="horario">Horario</option>
+      <option value="credito">Credito</option>
+    </select>
+  </div>
+
+  <div class="form-group d-flex align-items-center mx-sm-5 mb-2 col-md-4">
+  <input type="text" name="palabraClave2" class="form-control" id="palabraClave2" placeholder="Ingrese el valor de búsqueda" style="margin-left: -30px;" required>
+  
+
+  <input type="submit" class="btn btn-primary mx-2 mb-2" value="Buscar">
+  <input type="reset" class="btn btn-secondary mb-2" value="Limpiar" onclick="restablecerYRedirigir()">
+</div>
+
+  <input type="reset" class="btn btn-secondary mx-sm-3 mb-2" value="Agregar" onclick="redirigirRuta()">
+</form>
+
+<script>
+  function restablecerYRedirigir() {
+    window.location.href = '/cursos'; 
+  }
+</script>
+
+<script>
+  function redirigirRuta() {
+    window.location.href = '/cursos/agregar'; 
+  }
+</script>
+
+{{#if cursos}}
+  <table class="table table-bordered table-hover table-dark">
+    <thead>
+      <tr class="text-center">
+        <th>ID</th>
+        <th>Materia</th>
+        <th>Descripcion</th>
+        <th>Dia</th>
+        <th>Horario</th>
+        <th>Credito</th>
+        <th>Imagen</th>
+        <th>Opcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each cursos}}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{materia}}</td>
+          <td>{{descripcion}}</td>
+          <td>{{dia}}</td>
+          <td>{{horario}}</td>
+          <td>{{credito}}</td>
+          
+          <td>
+            {{#if imagen}}
+               <img src="/uploads/{{imagen}}" alt="Imagen del estudiante" style="width: 100px; height: auto;">
+            {{else}}
+              No disponible
+            {{/if}}
+          </td>
+          
+          <td>
+            {{#if opcion}}
+              <a href="/cursos/{{_id}}/status" class="btn btn-warning">No
+                disponible</a>
+            {{else}}
+              <a
+                href="/cursos/{{_id}}/status"
+                class="btn btn-success"
+              >Disponible</a>
+            {{/if}}
+            <a
+              href="/cursos/{{_id}}/update"
+              class="btn btn-info"
+            >Actualizar</a>
+            <a
+              href="/cursos/{{_id}}/delete"
+              class="btn btn-danger"
+            >Eliminar</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+{{else}}
+  <div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="text-center text-white">
+      <h1>No hay cursos</h1>
+      <img src="/icons/cursos.png" class="w-50" />
+    </div>
+  </div>
+{{/if}}
+

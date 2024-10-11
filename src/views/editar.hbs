@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 offset-md-3">
+      <div class="card card-body bg-dark p-4 text-white">
+        <h4>Actualiza estudiante</h4>
+        <form action="/estudiantes/{{estudiantes._id}}/update" method="POST">
+          <div>
+            <label for="id">Modifica el id:</label>
+            <input
+              type="text"
+              name="id"
+              placeholder="ID"
+              value="{{estudiantes.id}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+            <label for="nombre">Modifica el nombre:</label>
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Name"
+              value="{{estudiantes.nombre}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+            <label for="apellido">Modifica el apellido:</label>
+             <input
+              type="text"
+              name="apellido"
+              placeholder="Apellido"
+              value="{{estudiantes.nombre}}"
+              class="form-control bg-dark text-white"
+            />
+            </textarea>
+          </div>
+          <div>
+            <label for="edad">Modifica la edad:</label>
+            <input
+              type="text"
+              name="edad"
+              placeholder="Edad"
+              value="{{estudiantes.edad}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+            <label for="hobbie">Modifica el hobbie:</label>
+            <input
+              type="text"
+              name="hobbie"
+              placeholder="Hobbie"
+              value="{{estudiantes.hobbie}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <button class="btn btn-info">Actualizar</button>
+        </form>
+        <button class="btn btn-success btn-sm mt-2" onclick="window.location.href='/estudiantes';">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>

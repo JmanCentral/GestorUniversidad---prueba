@@ -1,0 +1,104 @@
+<form class="form-inline" action="/profesores/buscar" method="GET">
+  
+
+  <!-- Selección del tipo de búsqueda -->
+  <div class="form-group mx-sm-3 mb-2 col-md-2">
+    <select name="tipoBusqueda" class="form-control" id="tipoBusqueda">
+       <option value="" disabled selected>Selecciona una opción</option>
+      <option value="id">ID</option>
+      <option value="nombre">Nombre</option>
+      <option value="email">Email</option>
+      <option value="especializacion">Especializacion</option>
+      <option value="salario">Salario</option>
+      <option value="departamento">Departamento</option>
+    </select>
+  </div>
+  <!-- Campo para ingresar la palabra clave -->
+  
+  <div class="form-group mx-sm-3 mb-2 col-md-2">
+    <input type="text" name="palabraClave1" class="form-control" id="palabraClave1" placeholder="Valor a buscar" required>
+  </div>
+
+  <!-- Botones de enviar y limpiar -->
+  <input type="submit" class="btn btn-primary mb-2" value="Buscar">
+  &nbsp;&nbsp;
+  <input type="reset" class="btn btn-secondary mb-2" value="Limpiar" onclick="restablecerYRedirigir()">
+  <input type="reset" class="btn btn-secondary mx-sm-3 mb-2" value="Agregar" onclick="redirigirRuta()">
+</form>
+
+<script>
+  function restablecerYRedirigir() {
+    window.location.href = '/profesores'; 
+  }
+</script>
+
+<script>
+  function redirigirRuta() {
+    window.location.href = '/profesores/agregar'; 
+  }
+</script>
+
+
+{{#if profesores}}
+
+  <table class="table table-bordered table-hover table-dark">
+    <thead>
+      <tr class="text-center">
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Especializacion</th>
+        <th>Salario</th>
+        <th>Departamento</th>
+        <th>Imagen</th>
+        <th>Opcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each profesores}}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{nombre}}</td>
+          <td>{{email}}</td>
+          <td>{{especializacion}}</td>
+          <td>{{salario}}</td>
+          <td>{{departamento}}</td>
+          <td>
+            {{#if imagen}}
+               <img src="/uploads/{{imagen}}" alt="Imagen del profesor" style="width: 100px; height: auto;">
+            {{else}}
+              No disponible
+            {{/if}}
+          </td>
+           <td>
+            {{#if opcion}}
+              <a href="/profesores/{{_id}}/status" class="btn btn-warning">No
+                disponible</a>
+            {{else}}
+              <a
+                href="/profesores/{{_id}}/status"
+                class="btn btn-success"
+              >Disponible</a>
+            {{/if}}
+            <a
+              href="/profesores/{{_id}}/update"
+              class="btn btn-info"
+            >Actualizar</a>
+            <a
+              href="/profesores/{{_id}}/delete"
+              class="btn btn-danger"
+            >Eliminar</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+{{else}}
+  <div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="text-center text-white">
+      <h1>No hay profesores</h1>
+      <img src="/icons/profesor.png" class="w-50" />
+    </div>
+  </div>
+{{/if}}

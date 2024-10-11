@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 offset-md-3">
+      <div class="card card-body bg-dark p-4 text-white">
+        <h4>Actualiza venta</h4>
+        <form action="/profesores/{{profesores._id}}/update" method="POST">
+         <div>
+            <label for="id">Modificar el id:</label>
+            <input
+              type="text"
+              name="id"
+              placeholder="ID"
+              value="{{profesores.id}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+            <label for="nombre">Modifica el nombre:</label>
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Name"
+              value="{{profesores.nombre}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+            <label for="email">Modifica el email:</label>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              value="{{profesores.email}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+          <div>
+            <label for="especializacion">Modifica la especializacion:</label>
+            <input
+              type="text"
+              name="especializacion"
+              placeholder="Especializacion"
+              value="{{profesores.especializacion}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+           <div>
+            <label for="salario">Modifica el salario:</label>
+            <input
+              type="text"
+              name="salario"
+              placeholder="Salario"
+              value="{{profesores.salario}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+    <label for="departamento">Selecciona el departamento:</label>
+      <select name="departamento" id="departamento" class="form-control bg-dark text-white">
+        <option value="" disabled>Selecciona una opción</option>
+        <option value="ciencias basicas" <%= profesores.departamento === 'matematicas' ? 'selected' : '' %>Ciencias Básicas</option>
+        <option value="ciencias sociales" <%= profesores.departamento === 'ingles' ? 'selected' : '' %>Ciencias Sociales</option>
+        <option value="publicidad" <%= profesores.departamento === 'sociales' ? 'selected' : '' %>Publicidad</option>
+        <option value="diseño" <%= profesores.departamento === 'fisica' ? 'selected' : '' %>Diseño</option>
+        <option value="ambiental" <%= profesores.departamento === 'lenguas' ? 'selected' : '' %>Ambiental</option>
+    </select>
+
+</div>
+          <button class="btn btn-info">Actualizar</button>
+        </form>
+        <button class="btn btn-success btn-sm mt-2" onclick="window.location.href='/productos';">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>

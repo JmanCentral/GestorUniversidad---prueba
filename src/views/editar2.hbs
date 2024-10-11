@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 offset-md-3">
+      <div class="card card-body bg-dark p-4 text-white">
+        <h4>Actualizar cursos</h4>
+        <form action="/cursos/{{cursos._id}}/update" method="POST">
+          <div>
+            <label for="id">Modifica el id:</label>
+            <input
+              type="text"
+              name="id"
+              placeholder="ID"
+              value="{{cursos.id}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+            <label for="materia">Modifica la materia:</label>
+            <input
+              type="text"
+              name="materia"
+              placeholder="Materia"
+              value="{{cursos.materia}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <div>
+            <label for="descripcion">Modifica la descripcion</label>
+             <input
+              type="text"
+              name="descripcion"
+              placeholder="Descripcion"
+              value="{{cursos.descripcion}}"
+              class="form-control bg-dark text-white"
+            />
+            </textarea>
+          </div>
+          <div>
+    <label for="dia">Selecciona el dia:</label>
+    <select name="dia" id="dia" class="form-control bg-dark text-white">
+        <option value="" disabled>Select an option</option>
+        <option value="lunes" <%= profesores.dia === 'lunes' ? 'selected' : '' %>>Lunes</option>
+        <option value="martes" <%= profesores.dia === 'martes' ? 'selected' : '' %>>Martes</option>
+        <option value="miercoles" <%= profesores.dia === 'miercoles' ? 'selected' : '' %>>Miércoles</option>
+        <option value="jueves" <%= profesores.dia === 'jueves' ? 'selected' : '' %>>Jueves</option>
+        <option value="viernes" <%= profesores.dia === 'viernes' ? 'selected' : '' %>>Viernes</option>
+        <option value="sabado" <%= profesores.dia === 'sabado' ? 'selected' : '' %>>Sábado</option>
+    </select>
+</div>
+          <div>
+            <label for="horario">Selecciona el horario:</label>
+<select name="horario" id="horario" class="form-control bg-dark text-white">
+    <option value="" disabled>Selecciona una opción</option>
+    <option value="7:00-8:30" <%= profesores.horario === '7:00-8:30' ? 'selected' : '' %>>7:00-8:30</option>
+    <option value="7:00-9:00" <%= profesores.horario === '7:00-9:00' ? 'selected' : '' %>>7:00-9:00</option>
+    <option value="9:00-10:30" <%= profesores.horario === '9:00-10:30' ? 'selected' : '' %>>9:00-10:30</option>
+    <option value="9:00-11:00" <%= profesores.horario === '9:00-11:00' ? 'selected' : '' %>>9:00-11:00</option>
+    <option value="11:00-12:30" <%= profesores.horario === '11:00-12:30' ? 'selected' : '' %>>11:00-12:30</option>
+    <option value="11:00-13:00" <%= profesores.horario === '11:00-13:00' ? 'selected' : '' %>>11:00-13:00</option>
+    <option value="14:00-15:30" <%= profesores.horario === '14:00-15:30' ? 'selected' : '' %>>14:00-15:30</option>
+    <option value="14:00-16:00" <%= profesores.horario === '14:00-16:00' ? 'selected' : '' %>>14:00-16:00</option>
+    <option value="16:00-17:30" <%= profesores.horario === '16:00-17:30' ? 'selected' : '' %>>16:00-17:30</option>
+    <option value="16:00-18:00" <%= profesores.horario === '16:00-18:00' ? 'selected' : '' %>>16:00-18:00</option>
+    <option value="18:00-19:30" <%= profesores.horario === '18:00-19:30' ? 'selected' : '' %>>18:00-19:30</option>
+    <option value="18:00-20:00" <%= profesores.horario === '18:00-20:00' ? 'selected' : '' %>>18:00-20:00</option>
+    <option value="20:00-21:30" <%= profesores.horario === '20:00-21:30' ? 'selected' : '' %>>20:00-21:30</option>
+    <option value="20:00-22:00" <%= profesores.horario === '20:00-22:00' ? 'selected' : '' %>>20:00-22:00</option>
+</select>
+
+          </div>
+          <div>
+            <label for="credito">Modifica los creditos:</label>
+            <input
+              type="text"
+              name="credito"
+              placeholder="Credito"
+              value="{{cursos.credito}}"
+              class="form-control bg-dark text-white"
+            />
+          </div>
+          <button class="btn btn-info">Actualizar</button>
+        </form>
+        <button class="btn btn-success btn-sm mt-2" onclick="window.location.href='/cursos';">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>
